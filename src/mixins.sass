@@ -1,0 +1,25 @@
+@import "src/variables.sass"
+
+@mixin display-style
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: #ffffff10
+  box-shadow: -5px 3px 3px #5050503d
+  outline: none
+  color: $main_color
+  border: none
+
+@mixin custom-scroll
+  &::-webkit-scrollbar
+    width: 5px
+    height: 100%
+    background-color: #ced0ff
+  &::-webkit-scrollbar-thumb
+    background-color: $main_color
+
+@mixin buttons
+  font-family: 'Marmelad-Regular', sans-serif
+  font-size: 25px
+  font-weight: 100
+  padding: 15px

@@ -1,0 +1,13 @@
+.Title {
+  font-size: 36px;
+  font-weight: 100;
+  padding: 20px 20px 0 20px;
+}
+@media (max-width: 768px) {
+  .Title {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+/*# sourceMappingURL=Title.css.map */

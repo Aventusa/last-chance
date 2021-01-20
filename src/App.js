@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.sass'
+import Title from './components/Title/Title';
+import TextForm from './components/TextFrom/TextForm';
+import Footer from './components/Footer/Footer';
+import Comment from './components/Comment/Comment';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    window.onblur = changeTitle
+    window.onfocus = changeTitle
+
+    function changeTitle() {
+        document.title === 'Оставь коммент ;)'
+            ? document.title = 'Куда же ты :c'
+            : document.title = 'Оставь коммент ;)'
+
+    }
+
+    return (
+        <div className="App">
+            <Title/>
+            <TextForm/>
+            <Comment/>
+            <Footer/>
+        </div>
+    );
 }
 
 export default App;

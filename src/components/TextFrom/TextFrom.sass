@@ -1,0 +1,51 @@
+@import "src/variables.sass"
+@import "src/mixins.sass"
+form
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  max-width: 560px
+  margin: 0 auto
+  width: 100%
+  transition: .3s ease
+  @media(max-width: 768px)
+    align-items: center
+  @media (max-width: 380px)
+    max-width: 100%
+    padding: 0
+
+textarea, button
+  @include display-style
+
+textarea
+  display: block
+  resize: none
+  height: 250px
+  width: 100%
+  font-size: 20px
+  padding: 15px
+  line-height: 1.5
+  font-family: $main_font
+
+  &::placeholder
+    color: #fffffe1c
+  @include custom-scroll
+  @media (max-width: 768px)
+    max-width: 300px
+    padding: 5px
+
+
+button
+  display: flex
+  justify-content: center
+  align-items: center
+  cursor: pointer
+  margin-top: 15px
+  font-family: $main_font
+  font-size: 25px
+  padding: 15px
+
+.ty-message
+  text-align: center
+  font-size: 28px
+  transition: 1s ease
