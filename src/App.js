@@ -1,12 +1,15 @@
 import React from 'react'
-import './App.sass'
+import { YMInitializer } from 'react-yandex-metrika';
 import Title from './components/Title/Title';
 import TextForm from './components/TextFrom/TextForm';
 import Footer from './components/Footer/Footer';
 import Comment from './components/Comment/Comment';
+import './App.sass'
 
 
 function App() {
+
+    const url = 'http://last-chance.fun/'
 
     window.onblur = changeTitle
     window.onfocus = changeTitle
@@ -20,9 +23,10 @@ function App() {
 
     return (
         <div className="App">
+            <YMInitializer accounts={[71367655]} />
             <Title/>
-            <TextForm/>
-            <Comment/>
+            <TextForm url={url}/>
+            <Comment url={url}/>
             <Footer/>
         </div>
     );

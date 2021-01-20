@@ -1,15 +1,19 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, { useRef, useState} from 'react'
 import moment from 'moment'
 import getRandomInt from '../../utils';
 import Timer from '../Timer/Timer';
 import './TextFrom.sass'
+import PropTypes from 'prop-types';
 
-function TextForm() {
+
+function TextForm(props) {
     const [endDate, setEndDate] = useState('')
     const [stylesForm, setStylesForm] = useState({opacity: 1})
     const form = useRef()
 
-    fetch('http://last-chance/getDate.php')
+
+
+    fetch(props.url + 'getDate.php')
         .then(response => response.json())
         .then(data => setEndDate(data))
         .catch(error => console.error(error))
@@ -18,7 +22,7 @@ function TextForm() {
         e.preventDefault()
         const formData = new FormData(form.current)
         formData.set('date', takeEndDate())
-        fetch('http://last-chance/updateDate.php', {
+        fetch(props.url + 'updateDate.php', {
             method: 'POST',
             body: formData
         })
@@ -54,7 +58,7 @@ function TextForm() {
 
     return (
         <div className='TextForm'>
-            <Timer end={endDate}/>
+            <Timer end={endDate} url={props.url}/>
             <div
                 style={{
                     opacity: +!stylesForm.opacity
@@ -83,5 +87,10 @@ function TextForm() {
         </div>
     )
 }
+
+TextForm.propTypes = {
+    url: PropTypes.string
+}
+
 
 export default TextForm

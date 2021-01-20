@@ -1,13 +1,14 @@
 import React, {useState} from 'react'
+import PropTypes from 'prop-types'
 import './Comment.sass'
 
-function Comment() {
+function Comment(props) {
     const [comment, setComment] = useState('Тут кто-нибудь есть?')
     if (!comment) {
         getComment()
     }
     function getComment() {
-        fetch('http://last-chance/getComment.php')
+        fetch(props.url + 'getComment.php')
             .then(response => response.json())
             .then(message => setComment(message || 'Напиши что-нибудь, прошу.'))
             .catch(error => console.error(error))
@@ -31,6 +32,10 @@ function Comment() {
             </button>
         </div>
     )
+}
+
+Comment.propTypes = {
+    url: PropTypes.string
 }
 
 export default Comment

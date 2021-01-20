@@ -9,7 +9,7 @@ function Timer(props) {
     const [currentDate, setCurrentDate] = useState(null)
 
     if (!currentDate) {
-        fetch('http://last-chance/getCurrentDate.php')
+        fetch(props.url + 'getCurrentDate.php')
             .then(response => response.json())
             .then(date => setCurrentDate(moment(String(date))))
     }
@@ -38,6 +38,7 @@ function Timer(props) {
 
 Timer.propTypes = {
     end: PropTypes.string,
+    url: PropTypes.string
 }
 
 export default Timer
