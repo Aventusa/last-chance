@@ -24,7 +24,7 @@ function Timer(props) {
     }, [currentDate]);
 
     return (
-        <div className='Timer'>
+        <div className='timer'>
             <Moment
                 duration={currentDate}
                 date={props.end}

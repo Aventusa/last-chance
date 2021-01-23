@@ -3,7 +3,7 @@ import './Title.sass'
 
 function Title() {
     return (
-        <h3 className='Title'>
+        <h3 className='title'>
             Спаси сайтик
         </h3>
     )

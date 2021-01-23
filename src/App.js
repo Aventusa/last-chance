@@ -9,7 +9,7 @@ import './App.sass'
 
 function App() {
 
-    const url = 'http://last-chance.fun/'
+    const url = 'https://last-chance.fun/'
 
     window.onblur = changeTitle
     window.onfocus = changeTitle
@@ -22,7 +22,7 @@ function App() {
     }
 
     return (
-        <div className="App">
+        <div className="app">
             <YMInitializer accounts={[71367655]} />
             <Title/>
             <TextForm url={url}/>

@@ -19,7 +19,7 @@ function Comment(props) {
     }
 
     return (
-        <div className='Comment'>
+        <div className='comment'>
             <p>Коментарии</p>
             <div className="comment-display">
                 {comment}

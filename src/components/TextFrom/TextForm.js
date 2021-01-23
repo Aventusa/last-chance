@@ -26,7 +26,7 @@ function TextForm(props) {
             method: 'POST',
             body: formData
         })
-            .then(response => setEndDate(takeEndDate()))
+            .then(() => setEndDate(takeEndDate()))
             .catch(error => console.error(error))
 
         hideForm()
@@ -57,7 +57,7 @@ function TextForm(props) {
     ]
 
     return (
-        <div className='TextForm'>
+        <div className='text-form'>
             <Timer end={endDate} url={props.url}/>
             <div
                 style={{
