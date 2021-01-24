@@ -1,12 +1,14 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import './Comment.sass'
 
 function Comment(props) {
     const [comment, setComment] = useState('Тут кто-нибудь есть?')
-    if (!comment) {
+
+    useEffect(() => {
         getComment()
-    }
+    }, [])
+
     function getComment() {
         fetch(props.url + 'getComment.php')
             .then(response => response.json())
