@@ -8,8 +8,7 @@ import './App.sass'
 
 
 function App() {
-
-    const url = 'https://last-chance.fun/'
+    const url = 'http://last-chance/'
 
     window.onblur = changeTitle
     window.onfocus = changeTitle
@@ -18,7 +17,6 @@ function App() {
         document.title === 'Оставь коммент ;)'
             ? document.title = 'Куда же ты :c'
             : document.title = 'Оставь коммент ;)'
-
     }
 
     return (

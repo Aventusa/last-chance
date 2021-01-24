@@ -4,41 +4,39 @@ import moment from 'moment'
 import Moment from 'react-moment'
 import './Timer.sass'
 
-function Timer(props) {
+const defaultCurrentDate = moment()
 
-    const [currentDate, setCurrentDate] = useState(null)
-
-    if (!currentDate) {
-        fetch(props.url + 'getCurrentDate.php')
-            .then(response => response.json())
-            .then(date => setCurrentDate(moment(String(date))))
-    }
+function Timer({url, endDate}) {
+    const [currentDate, setCurrentDate] = useState(defaultCurrentDate)
 
     useEffect(() => {
-            let secTimer = setInterval(() => {
-                if (currentDate) {
-                    setCurrentDate(moment(currentDate + moment.duration().add(1, "s")))
-                }
-            }, 1000)
-            return () => clearInterval(secTimer);
-    }, [currentDate]);
+        fetch(url + 'getCurrentDate.php')
+            .then(response => response.json())
+            .then(date => setCurrentDate(moment(String(date))))
+    }, [])
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentDate(moment())
+        }, 1000)
+        return () => clearInterval(interval)
+    }, [currentDate])
 
     return (
         <div className='timer'>
             <Moment
                 duration={currentDate}
-                date={props.end}
+                date={endDate}
                 format='hh:mm:ss'
             >
             </Moment>
-
         </div>
     );
 }
 
 Timer.propTypes = {
-    end: PropTypes.string,
-    url: PropTypes.string
+    url: PropTypes.string,
+    endDate: PropTypes.string
 }
 
 export default Timer
